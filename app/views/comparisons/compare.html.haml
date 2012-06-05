@@ -1,18 +1,5 @@
-%h2= @city1.address
-%h3= @city1.sentiment
-%b Happiest tweet:
-%br
-= link_to "http://twitter.com/#{@city1.happiest.from_user}", "@#{@city1.happiest.from_user}"
-\-
-= @city1.happiest.text
-
-%h2= @city2.address
-%h3= @city2.sentiment
-%b Happiest tweet:
-%br
-= link_to "http://twitter.com/#{@city2.happiest.from_user}", "@#{@city2.happiest.from_user}"
-\-
-= @city2.happiest.text
+= render 'city', :city => @city1
+= render 'city', :city => @city2
 
 %h3{:style => 'color:green'}
   - if @city1.sentiment > @city2.sentiment

@@ -1,0 +1,9 @@
+%h2= city.address
+%h3
+  Happiness score:
+  = city.sentiment
+%b Happiest tweet:
+%br
+= link_to "@#{city.happiest.from_user}", "http://twitter.com/#{city.happiest.from_user}"
+\-
+= city.happiest.text
