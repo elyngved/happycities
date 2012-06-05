@@ -22,6 +22,7 @@ end
 
 gem 'jquery-rails'
 
+gem 'haml-rails'
 gem 'twitter-bootstrap-rails'
 
 gem 'geocoder'

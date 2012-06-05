@@ -1,0 +1,25 @@
+%h2= @city1.address
+%h3= @city1.sentiment
+%b Happiest tweet:
+%br
+= link_to "http://twitter.com/#{@city1.happiest.from_user}", "@#{@city1.happiest.from_user}"
+\-
+= @city1.happiest.text
+
+%h2= @city2.address
+%h3= @city2.sentiment
+%b Happiest tweet:
+%br
+= link_to "http://twitter.com/#{@city2.happiest.from_user}", "@#{@city2.happiest.from_user}"
+\-
+= @city2.happiest.text
+
+%h3{:style => 'color:green'}
+  - if @city1.sentiment > @city2.sentiment
+    = "#{@city1.city} is clearly happier at this moment!"
+  - elsif @city1.sentiment < @city2.sentiment
+    = "#{@city2.city} has got it goin' on!"
+  - else
+    = "It's a tie. How boring."
+
+= link_to "Wow! Compare Again!", root_url

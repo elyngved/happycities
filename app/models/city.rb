@@ -17,4 +17,8 @@ class City
     @sentiment ||= tweets.map(&:sentiment).inject(:+)
   end
 
+  def happiest
+    @happiest ||= tweets.max_by {|t| t.sentiment}
+  end
+
 end

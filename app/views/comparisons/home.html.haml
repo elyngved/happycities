@@ -1,0 +1,16 @@
+%h1 Happy Cities!
+
+%h3 Enter two cities below. This will grab the last 100 tweets from those locations and give them sentiment scores. This is without a doubt the most scientific way to measure the happiness of cities!
+
+- if flash[:notice]
+  %span{:style => 'color:red'}= flash[:notice]
+
+= form_for :cities, :url => '/compare' do |f|
+  = f.text_field :c1
+  = f.text_field :c2
+  = f.submit "Submit"
+
+%p
+  Actually, it's clearly not. 100 tweets is not a very statistically relevant sample, but it was a way to get the most tweets without having to page, and without having to deal with long processing times. In fact, just about every time you reload, you will get different results.
+%p
+  This uses the Geotracker gem which gives back geo coordinates for each place. The app then searches for all tweets within 50 miles of those coords.
