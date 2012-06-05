@@ -24,8 +24,12 @@ gem 'jquery-rails'
 
 gem 'twitter-bootstrap-rails'
 
+gem 'geocoder'
+gem 'twitter'
+
 group :development, :test do
   gem 'rspec-rails'
+  gem 'awesome_print'
 end
 
 # To use ActiveModel has_secure_password
