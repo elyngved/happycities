@@ -15,9 +15,9 @@ describe City do
     lambda { City.new("Ihopethisisnotactuallyarealplace") }.should raise_error
   end
 
-  xit "should load tweets based on location" do
-    TweetSearch.stub!(:by_geo).and_return("success!")
-    city.tweets.should == "success!"
+  it "should load tweets based on location" do
+    tweets = city.tweets
+    tweets.should be_a Array
   end
 
   it "should get the overall sentiment of loaded tweets"

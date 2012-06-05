@@ -1,5 +1,6 @@
 class City
   attr_accessor :geo
+  delegate :city, :state, :country, :address, :longitude, :latitude, :to => :@geo
 
   def initialize(location_string)
     @geo = Geocoder.search(location_string).first
@@ -7,8 +8,11 @@ class City
   end
 
   def tweets
-    @tweets ||= TweetSearch.by_geo @geo
+    @tweets ||= Twitter.search("", :geocode => "#{geo.latitude},#{geo.longitude},50mi", :rpp => 100)
   end
 
+  def sentiment
+
+  end
 
 end
