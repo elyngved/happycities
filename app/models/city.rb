@@ -1,5 +1,5 @@
 class City
-  
+
   attr_accessor :geo
   delegate :city, :state, :country, :address, :longitude, :latitude, :to => :@geo
 
@@ -10,11 +10,11 @@ class City
   end
 
   def tweets
-    @tweets ||= Twitter.search("", {:geocode => "#{geo.latitude},#{geo.longitude},50mi", :rpp => 100}.merge(@tweet_params))
+    @tweets ||= Twitter.search("", {:geocode => "#{geo.latitude},#{geo.longitude},50mi", :rpp => 100}.merge(@tweet_params)).map{|t| Tweet.new t}
   end
 
   def sentiment
-
+    @sentiment ||= tweets.map(&:sentiment).inject(:+)
   end
 
 end

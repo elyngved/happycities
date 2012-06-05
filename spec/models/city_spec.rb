@@ -20,5 +20,8 @@ describe City do
     tweets.should be_a Array
   end
 
-  it "should get the overall sentiment of loaded tweets"
+  it "should get the overall sentiment of loaded tweets" do
+    s = city.sentiment
+    s.should be_a Float
+  end
 end
