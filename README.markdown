@@ -1,4 +1,4 @@
-== Happy Cities!
+### Happy Cities!
 
 1. Clone repo
 2. `bundle install`
